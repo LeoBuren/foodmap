@@ -1,0 +1,29 @@
+.latest-data-card {
+    background-color: #FFFFFF;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    transition: background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ECFAEB;
+    border: 1px solid #66D65C;
+
+    p {
+        color: #{'rgba(26, 138, 15, 0.6)'};
+        font-size: 18px;
+
+        &.large {
+            font-size: 48px;
+            @include mq(medium) {
+                font-size: calc((100vw - 440px) / 12);
+            }
+            
+            color: #{'rgba(64, 204, 51, 0.6)'};
+            font-weight: bold;
+        }
+    }
+}

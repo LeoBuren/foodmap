@@ -1,0 +1,97 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn {
+    border-radius: $border-radius;
+    display: inline-block;
+    padding: 1em 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 0.1em;
+    transition: background 0.15s cubic-bezier(0,0,0.3, 1);
+    
+    &:hover {
+        cursor: pointer;
+        transform: translateY(-1px);
+    }
+    &:focus, &:focus-within {
+        transform: none;
+    }
+
+    &.btn-cta {
+        background: $brand-color;
+        color: #fff;
+
+        @include mq(small) {
+            align-self: flex-start;
+        }
+
+        &:hover {
+            background: lighten( $brand-color, 10%);
+        }
+    }
+    &.btn-secondary {
+        background: none;
+        color: hsl(200, 40, 30%);
+    }
+    &.btn-primary {
+        background-color: $brand-color;
+        width: 100%;
+        background: linear-gradient(225deg, $brand-color, adjust-hue($brand-color, 40%));
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.19), 0 5px 5px rgba(0, 0, 0, 0.23);
+        
+        color: #fff;
+
+        @include mq(small) {
+            width: initial;
+            background-size: calc(100% + 100px);
+            background-position: -100px;
+        }
+
+        &:hover {
+            background-position: 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        &:focus {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.19), 0 3px 3px rgba(0, 0, 0, 0.23);
+        }
+
+        &.btn-icon {
+            @include mq(small) {
+                background-size: calc(100% + 36px);
+        padding-right: calc(.5em + 80px);
+            }
+        }
+    }
+
+    &.btn-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-right: calc(4em);
+        i, svg {
+            position: absolute;
+            right: 20px;
+            font-size: 1.25em;
+        }
+    }
+
+    &.btn-lowkey {
+        background-color: $brand-color;
+        width: 100%;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.19), 0 5px 5px rgba(0, 0, 0, 0.23);
+        color: #fff;
+
+        @include mq(small) {
+            width: initial;
+        }
+
+        &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        &:focus {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.19), 0 3px 3px rgba(0, 0, 0, 0.23);
+        }
+    }
+}

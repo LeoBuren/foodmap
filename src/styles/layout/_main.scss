@@ -1,0 +1,13 @@
+main {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+
+    @include mq(medium) {
+        width: calc(100% - 100px);
+        top: 75px;
+        margin: 0;
+        left: 100px;
+        right: 0;
+    }
+}

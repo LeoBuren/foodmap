@@ -1,0 +1,67 @@
+//! import google fonts
+// @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700');
+// OR use @font-face like below
+
+//! import a custom font below
+/*
+@font-face {
+  font-family: 'Libre-Baskerville-Reg';
+  font-display: fallback;
+  font-style: normal;
+  src:
+    local('Libre Baskerville'), /* Checks if font is on users computer */
+    /*
+    local('LibreBaskerville-Regular'), /* Checks if font is on users computer */
+    /*
+    url('fonts/libre-baskerville-v5-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    /*
+    url('fonts/libre-baskerville-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    /*
+}*/
+
+$bread: 'Roboto', sans-serif;
+$header: 'Poppins', sans-serif; 
+
+body {
+  font-family: $bread;
+  font-weight: normal;
+  color: hsl(201, 20, 10);
+}
+header {
+  font-family: $header;
+}
+h1, h2, h3, h4, h5, h6, .navbar:not(.inner) > div > a {
+  font-family: $header;
+  font-weight: 700;
+}
+h1 {
+  color: hsl(294, 100%, 10);
+  line-height: 1.125;
+  letter-spacing: -0.0125em;
+  font-size: 1.5em;
+}
+h2 {
+  color: hsl(201, 20, 40);
+  line-height: 1.25;
+}
+
+a {
+  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  &:hover {
+    color: hsl(201, 100%, 60);
+  }
+}
+
+p {
+  line-height: 1.5;
+  max-width: 40em;
+
+  &+p {
+    margin-top: 1em;
+  }
+}
+
+.button {
+  font-family: $bread;
+  font-weight: bold;
+}

@@ -1,0 +1,11 @@
+.website-link {
+    text-decoration: underline;
+    transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), text-decoration-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    color: inherit;
+    text-decoration-color: $accent-color;
+
+    &:hover {
+        color: hsl(210, 100%, 60%);
+        text-decoration-color: hsl(210, 100%, 60%);
+    }
+}

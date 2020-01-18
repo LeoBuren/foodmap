@@ -1,0 +1,42 @@
+.data-card {
+    background-color: #FFFFFF;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    transition: background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    i {
+        $dim: calc((100vw - 440px) / 22);
+        font-size: $dim;
+        pointer-events: none;
+        color: $light-grey;
+        padding-bottom: 0.1em;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 36px;
+        text-align: center;
+        color: $dark-grey;
+    }
+
+
+    &.active, &:hover {
+        background-color: $brand-color;
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 3px 5px rgba(0, 0, 0, 0.2);
+        border-color: $brand-color;
+
+        p, i {
+            color: #fff;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

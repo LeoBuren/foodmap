@@ -1,0 +1,101 @@
+.room-card {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: #fff;
+    overflow: hidden;
+    transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    header {
+        height: 40px;
+        background-color: #{'rgba(0,0,0, 0.02)'};
+        padding: 9px 21px;
+        display: flex;
+        justify-content: space-between;
+        transition: background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        h1 {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 21px;
+            letter-spacing: 0.1px;
+            font-family: $bread;
+            color: $dark-grey;
+            transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        i {
+            display: none;
+            color: $warning-red;
+            pointer-events: none;
+        }
+    }
+
+    div {
+        //padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px 0;
+        @include mq(medium) {
+            grid-template-columns: repeat(3, 1fr);
+            padding: 20px;
+        }
+        
+        grid-gap: 12px;
+
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                font-weight: 500;
+                font-style: normal;
+                font-size: 14px;
+                line-height: 21px;
+                letter-spacing: 0.1px;
+                color: #{'rgba(0,0,0, 0.7)'};
+            }
+
+            i {
+                font-size: 20px;
+                padding-right: .3em;
+                color: $dark-grey;
+                pointer-events: none;
+            }
+
+            &.active {
+                p, i {
+                    color: $warning-red;
+                }
+                
+            }
+        }
+    }
+
+    &.active {
+        header i {
+            display: block;
+        }
+    }
+
+    &:hover {
+        header {
+            background-color: #{'rgba(0,0,0, 0.06)'};
+
+            h1 {
+                color: $brand-color;
+            }
+        }
+
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 3px 5px rgba(0, 0, 0, 0.2);
+
+        &.active {
+            header {
+                background-color: #{'rgba(255,22,22, 0.06)'};
+                h1 {
+                    color: $warning-red;
+                }
+            }
+        }
+    }
+}
