@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Search from '../components/Search'
 import DataCard from '../components/DataCard'
 
-class HomePage extends Component {
+class SettingsPage extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -73,11 +73,11 @@ class HomePage extends Component {
                 </aside>
                 <Search searchFunc={this.handleSearch} />
                 <main>
-                    {this.renderDataCards()}
+                    settings
                 </main>
             </div>
         );
     }
 }
 
-export default HomePage;
+export default SettingsPage;

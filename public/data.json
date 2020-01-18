@@ -50,7 +50,7 @@
             "Frukt": ["Boysenbär", "Fikon", "Mango", "Nypon", "Päron", "Körsbär", "Vinbär (röd/svart)", "Äpple", "Aprikos", "Banan", "Dadlar (torkad)",
                 "Fikon (torkad)", "Mango (torkad)", "Nektarin", "Persika", "Plommon", "Rambutan", "Sharonfrukt", "Svarta vinbär",
                 "Vattenmelon", "Björnbär", "Kokosmjöl", "Litchi"],
-            "Grönsaker": ["Bondbönor", "Jordärtskocka", "Salladsärter", "Sparris", "Jordärtskocka", "Kronärtskocka", "Lök", "Rödbeta", "Sockerärter",
+            "Grönsaker": ["Bondbönor", "Jordärtskocka", "Salladsärter", "Sparris", "Kronärtskocka", "Lök", "Rödbeta", "Sockerärter",
                 "Svartrot", "Vitlök", "Avakado", "Blomkål", "Svamp"],
             "Sötningsmedel": ["Agavesirap", "Fruktos", "Glukos-fruktossirap", "Honung", "Erytritol", "Mannitol", "Maltitol", "Sorbitol", "Xylitol"],
             "Generell laktos": ["Créme fraiche", "Fil", "Glass", "Grädde", "Gräddfil", "Keso", "Kvarg", "Mjölk", "Yoghurt"],

@@ -1,0 +1,79 @@
+.data-card-dropdown {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    &.active {
+        grid-row-end: span 8;
+
+        & > div {
+            height: 65px;
+        }
+
+        ul {
+            height: calc(100% - 65px);
+            display: grid;
+            grid-auto-rows: repeat(8, 1fr);
+
+            li {
+                border: none;
+                border-radius: 0;
+                &:not(:first-child) {
+                    border-top: 1px solid $border-color;
+                }
+            }
+        }
+    }
+
+    &:hover, &.active {
+        cursor: pointer;
+        & > div {
+            background-color: $brand-color;
+            color: #fff;
+        }
+    }
+
+    & > div {
+        background-color: #fff;
+        display: flex;
+        padding: 1rem 2rem;
+        height: 100%;
+        color: $dark-grey;
+        pointer-events: none;
+
+        justify-content: space-between;
+        align-items: center;
+
+        i:not(.active) {
+            display: none;
+        }
+    }
+
+    @include mq(medium) {
+        grid-column-end: span 8;
+        & > div {
+            display: none;
+        }
+
+        pointer-events: none;
+        border: none;
+
+        .data-card-container {
+            pointer-events: auto;
+        }
+    }
+
+    .data-card-container {
+        width: 100%;
+        height: 100%;
+
+        @include mq(medium) {
+            
+            display: grid;
+            $width: calc((100vw - 440px) / 8);
+            grid-template-columns: repeat(8, $width);
+            grid-gap: 20px;
+        }
+    }
+}
+
