@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Search from '../components/Search'
-import DataCard from '../components/DataCard'
+import Search from '../components/Search';
+import DataCard from '../components/DataCard';
+import emptyStateImage from '../emptyState.svg';
 
 class HomePage extends Component {
     constructor(props){
         super(props);
         this.state={
             searchVal: "",
-            azSort: true
+            azSort: false
         }
       }
 
@@ -29,17 +30,50 @@ class HomePage extends Component {
         });
     }
 
-    
+    renderSearchCard = data => {
+        for(const key in this.props.data[1]) {
+            if(this.props.data[1].hasOwnProperty(key) && this.state.searchVal[0] === key) {
+                let arr = [];
+                for(let i=0; i<this.props.data[1][key].length; i++) {
+                    arr[i] = [];
+                    if(!this.checkIfEmpty(this.props.data[1][key][i])) {
+                        this.props.data[1][key][i][0].filter(val => 
+                            val.includes(this.state.searchVal)).map(val =>
+                                arr[i].push(val)
+                        );
+                    }
+                    
+                }
+
+                return this.checkIfEmpty(arr)?
+                <div className="emptyStateContainer">
+                    <img src={emptyStateImage} alt="No results found, an illustration featuring a female painter and a blank canvas"></img>
+                    <div className="text-container">
+                        <p>"{this.state.searchVal}" hittades inte</p>
+                    </div>
+                </div>:
+                    <DataCard name={this.state.searchVal} key={this.state.searchVal} data={[arr]}/>;
+            }
+        }
+    }
+
+    formatString = string => string!==''?string[0].toUpperCase() + string.slice(1).toLowerCase():'';
+
+    checkIfEmpty = data => {
+        if(data[0].length) {
+            return !(data.some(val => {
+                return val[0].length !== 0;
+            }));
+        }
+        
+        return true;
+    }
 
     renderDataCards = () => {
         let cardArray = [];
         if(this.state.searchVal) {
-            for(const key in this.props.data[1]) {
-                if(this.props.data[1].hasOwnProperty(key) && this.state.searchVal[0].toUpperCase() === key) {
-                    cardArray.push(<DataCard name={key} key={key} data={this.props.data[1][key]}/>);
-                }
-            }
-        } else if(!this.state.azSort) {
+            return this.renderSearchCard();
+        } else if(this.state.azSort) {
             for(const key in this.props.data[1]) {
                 if(this.props.data[1].hasOwnProperty(key)) {
                     cardArray.push(<DataCard name={key} key={key} data={this.props.data[1][key]}/>);
@@ -56,7 +90,8 @@ class HomePage extends Component {
         return cardArray;
     }
 
-    handleSearch = val => this.setState({searchVal: val});
+    handleClick = () => this.setState({azSort: !this.state.azSort});
+    handleSearch = val => this.setState({searchVal: this.formatString(val)});
     render() {
         return (
             <div id="index">
@@ -81,6 +116,19 @@ class HomePage extends Component {
                                         <p>Inställningar</p>
                                     </div>
                                 </Link>
+                            </li>
+                            <li>
+                                {this.state.azSort?
+                                    <div onClick={this.handleClick}>
+                                        <i className="material-icons"> sort </i>
+                                        <p>Sortera kategori</p>
+                                    </div>
+                                    :
+                                    <div onClick={this.handleClick}>
+                                        <i className="material-icons"> sort_by_alpha </i>
+                                        <p>Sortera bokstavsordning</p>
+                                    </div>
+                                }
                             </li>
                         </ul>
                     </nav>

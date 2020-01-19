@@ -47,7 +47,7 @@ class Search extends Component {
                 {this.renderRedirect()}
                 <div><i className="material-icons"> search </i></div>
                 <form onSubmit={this.handleSubmit}>
-                    <input id="searchInput" type="search" placeholder="Sök efter mat" onChange={this.handleChange} />
+                    <input id="searchInput" maxlength="10" type="search" placeholder="Sök efter mat" onChange={this.handleChange} />
                 </form>
             </nav>
         );

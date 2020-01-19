@@ -980,7 +980,7 @@ ul {
 }
 
 aside {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
@@ -1219,12 +1219,15 @@ aside ul li:not(.active) div:hover i {
 }
 
 #searchbar {
-  position: relative;
+  position: fixed;
   height: 50px;
   border-bottom: 1px solid #E5E5E5;
   background-color: #fff;
   z-index: 2;
   top: 50px;
+  width: 100%;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04), 0 6px 6px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04), 0 6px 6px rgba(0, 0, 0, 0.06);
 }
 
 @media screen and (min-width: 801px) {
@@ -1302,7 +1305,7 @@ aside ul li:not(.active) div:hover i {
 main {
   position: relative;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 @media screen and (min-width: 801px) {
@@ -1347,6 +1350,88 @@ main {
   word-break: break-word;
   white-space: normal;
   font-size: 14px;
+}
+
+#index main .emptyStateContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding-top: 56px;
+}
+
+@media screen and (min-width: 801px) {
+  #index main .emptyStateContainer {
+    width: 742px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #index main .emptyStateContainer {
+    padding-top: 104px;
+  }
+}
+
+#index main .emptyStateContainer img {
+  width: 33%;
+  max-width: 362px;
+  max-height: 335px;
+  min-height: 167px;
+  min-width: 181px;
+}
+
+#index main .emptyStateContainer .text-container {
+  padding-top: 40px;
+  text-align: center;
+}
+
+@media screen and (min-width: 1400px) {
+  #index main .emptyStateContainer .text-container {
+    padding-top: 93px;
+  }
+}
+
+#index main .emptyStateContainer .text-container p, #index main .emptyStateContainer .text-container a {
+  font-size: 30px;
+  color: rgba(0,0,0, 0.4);
+  display: inline;
+}
+
+@media screen and (min-width: 801px) {
+  #index main .emptyStateContainer .text-container p, #index main .emptyStateContainer .text-container a {
+    font-size: 36px;
+  }
+}
+
+#index main .emptyStateContainer .text-container span {
+  position: relative;
+  pointer-events: none;
+}
+
+#index main .emptyStateContainer .text-container span:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -.25em;
+  right: -.25em;
+  bottom: -.25em;
+  border-bottom: 3px solid #f36e21;
+  pointer-events: none;
+}
+
+#index main .emptyStateContainer .text-container span a {
+  pointer-events: all;
+}
+
+#index main .emptyStateContainer .text-container span a:hover {
+  color: #2196F3;
 }
 
 #list main {
