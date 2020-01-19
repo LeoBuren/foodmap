@@ -7,7 +7,8 @@ class HomePage extends Component {
     constructor(props){
         super(props);
         this.state={
-            searchVal: ""
+            searchVal: "",
+            azSort: true
         }
       }
 
@@ -32,10 +33,23 @@ class HomePage extends Component {
 
     renderDataCards = () => {
         let cardArray = [];
-        for(const key in this.props.data) {
-            if (this.props.data.hasOwnProperty(key)) {
-                cardArray.push(<DataCard name={key} key={key} data={this.props.data[key]}
-                    handleClick={this.handleClick}/>);
+        if(this.state.searchVal) {
+            for(const key in this.props.data[1]) {
+                if(this.props.data[1].hasOwnProperty(key) && this.state.searchVal[0].toUpperCase() === key) {
+                    cardArray.push(<DataCard name={key} key={key} data={this.props.data[1][key]}/>);
+                }
+            }
+        } else if(!this.state.azSort) {
+            for(const key in this.props.data[1]) {
+                if(this.props.data[1].hasOwnProperty(key)) {
+                    cardArray.push(<DataCard name={key} key={key} data={this.props.data[1][key]}/>);
+                }
+            }
+        }else {
+            for(const key in this.props.data[0]) {
+                if (this.props.data[0].hasOwnProperty(key)) {
+                    cardArray.push(<DataCard name={key} key={key} data={this.props.data[0][key]}/>);
+                }
             }
         }
 

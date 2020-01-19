@@ -30,13 +30,18 @@ class DataCard extends Component {
         */
     }
 
-    handleClick = () => {
-        this.setState({active: !this.state.active});
+    handleClick = e => {
+        e.preventDefault();
+        if(e.target === e.currentTarget) {
+            this.setState({active: !this.state.active});
+        }
+
+        
     }
 
     render(){
         return(
-            <div className="data-card-dropdown" onClick={this.handleClick}>
+            <div className="data-card-dropdown" onClick={e => this.handleClick(e)}>
                 <div>
                     <p>{this.props.name}</p>
                     {this.state.active?<i className="material-icons">expand_more</i>:<i className="material-icons active">expand_more</i>}
@@ -45,15 +50,15 @@ class DataCard extends Component {
                 {this.state.active?
                     (<ul className="data-card-container">
                         {this.props.data.map((kategori, i) => {
-                            if(i === 0) {
+                            if(i === 0 && kategori[0].length) {
                                 return <li key={kategori}>
                                     {kategori.map(data => data.map(val => <p key={val} style={{ color: 'green' }}>{val}</p>))}
                                 </li>
-                            }else if(i === 1) {
+                            }else if(i === 1 && kategori[0].length) {
                                 return <li key={kategori}>
                                     {kategori.map(data => data.map(val => <p key={val} style={{ color: 'orange' }}>{val}</p>))}
                                 </li>
-                            }else if(i === 2) {
+                            }else if(i === 2 && kategori[0].length) {
                                 return <li key={kategori}>
                                     {kategori.map(data => data.map(val => <p key={val} style={{ color: 'red' }}>{val}</p>))}
                                 </li>

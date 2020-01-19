@@ -1,3 +1,29 @@
 #index main {
     padding: 2rem 1rem;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-gap: 1rem;
+
+    ul {
+        padding: 1rem;
+        background-color: #fff;
+
+        li {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            grid-gap: 0.5rem;
+            grid-auto-rows: max-content;
+
+            &+li {
+                margin-top: 1rem;
+            }
+
+            p {
+                margin: 0;
+                word-break: break-word;
+                white-space: normal;
+                font-size: 14px;
+            }
+        }
+    }
 }

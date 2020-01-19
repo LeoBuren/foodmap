@@ -19,27 +19,74 @@ class App extends Component {
     .then(data => {
         this.handleData(data);
     });
+
   }
 
   handleData = data => {
     let arr = [];
+    let azArr = [];
+
     data.map((val, i) => {
         for(const key in val) {
             if (val.hasOwnProperty(key)) {
                 if(arr[key] === undefined) {
                     arr[key] = [];
                 }
+                if(azArr[i] === undefined) {
+                  azArr[i] = [];
+                }
                 if(arr[key][i] === undefined) {
                     arr[key][i] = [];
                 }
 
+                azArr[i].push(val[key]);
                 arr[key][i].push(val[key]);
             }
         }
     })
 
-    this.setState({data: arr});
+
+    let newArr = [];
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("");
+
+    //flattening & sorting alphabetically
+    for(let i = 0; i < azArr.length; i++) {
+      azArr[i] = azArr[i].flat().sort();
+      alphabet.forEach(letter => {
+        if(newArr[letter] === undefined) {
+          newArr[letter] = [];
+        }
+        if(newArr[letter][i] === undefined) {
+          newArr[letter][i] = [];
+        }
+
+        azArr[i].forEach(val => {
+          if(val[0].toUpperCase() === letter) {
+            newArr[letter][i].push(val);
+          }
+        });
+
+        newArr[letter][i] = [newArr[letter][i]];
+        
+        // checks and removes empty arrays
+        if(i === azArr.length-1) {
+          if(this.checkIfEmpty(newArr[letter])) {
+            delete newArr[letter];
+          }
+        }
+
+      });
+    }
+
+    this.setState({data: [arr, newArr]});
   }
+
+  checkIfEmpty = data => {
+    return !(data.some(val => {
+        return val[0].length !== 0;
+    }));
+  }
+
 
   render() {
     return (

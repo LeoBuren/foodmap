@@ -1317,6 +1317,36 @@ main {
 
 #index main {
   padding: 2rem 1rem;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+#index main ul {
+  padding: 1rem;
+  background-color: #fff;
+}
+
+#index main ul li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(130px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-gap: 0.5rem;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+}
+
+#index main ul li + li {
+  margin-top: 1rem;
+}
+
+#index main ul li p {
+  margin: 0;
+  word-break: break-word;
+  white-space: normal;
+  font-size: 14px;
 }
 
 #list main {

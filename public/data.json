@@ -22,11 +22,11 @@
             "Kaffe & te": ["Te (grönt/pepparmynta/rött/vitt)"],
             "Nötter": ["Jordnöt", "Makadamianöt", "Mandeldryck", "Paranöt", "Pekannöt", "Pinjenöt", "Valnöt"],
             "Övrigt": ["Choklad (>70%)", "Kakaopulver", "Arrowrot", "Bakpulver", "Chili", "Fiberhusk", "Fibrex", "Fisksås", "Galangal",
-                "Gräslök", "Husk", "Ingefära", "Jäst", "Kanel", "Kapris", "Ketchup", "Kryddor", "Majonnäs", "Misopasta", "Olja", "Pepparrot",
-                "Ramslök", "Senap", "Socker (strö/rå/farin/rör/beta)", "Sojasås", "Vanilj (stång/pulver)", "Vinäger (filtrerad)", "Wasabi",
+                "Ingefära", "Jäst", "Kanel", "Kapris", "Ketchup", "Kryddor", "Majonnäs", "Misopasta", "Olja", "Pepparrot",
+                "Ramslök", "Socker (strö/rå/farin/rör/beta)", "Sojasås", "Vanilj (stång/pulver)", "Vinäger (filtrerad)", "Wasabi",
                 "Ättika", "Örter", "Guargummi", "Stärkelse (hydroliserad/modifierad/resistent)", "Karragenan", "Maltodextrin", "Sojalecitin",
                 "Tapioka", "Vetestärkelse"],
-            "Protein": ["Alger", "Fisk", "Fågel", "Kött", "Seitan", "Sjögräs", "Skaldjur", "Tempeh", "Quorn", "Ägg"],
+            "Protein": ["Alger", "Fisk", "Fågel", "Kött", "Seitan", "Sjögräs", "Skaldjur", "Quorn", "Ägg"],
             "Godis & Snacks": ["Chips", "Popcorn"]
     },
     {
@@ -42,7 +42,7 @@
                 "Svarta bönor (konserverat) 50g"],
             "Kaffe & te": ["Kaffe 2,5dl", "Te (chai/svart/ört) 2,5dl"],
             "Nötter": ["Hasselnöt 20st", "Mandelnöt 10st"],
-            "Övrigt": ["Carob 1tsk", "Kokossocker 2tsk", "Invertsockersirap 10g"],
+            "Övrigt": ["Carob 1tsk", "Invertsockersirap 10g"],
             "Dryck": ["Vin 15cl", "Sprit 4cl", "Öl (ej vete) 36cl", "Läsk", "Mineralvatten", "Saft 2,5dl"],
             "Godis & Snacks": ["Ostbågar 50g", "Godis 70g"]
     },
@@ -52,7 +52,7 @@
                 "Vattenmelon", "Björnbär", "Kokosmjöl", "Litchi"],
             "Grönsaker": ["Bondbönor", "Jordärtskocka", "Salladsärter", "Sparris", "Kronärtskocka", "Lök", "Rödbeta", "Sockerärter",
                 "Svartrot", "Vitlök", "Avakado", "Blomkål", "Svamp"],
-            "Sötningsmedel": ["Agavesirap", "Fruktos", "Glukos-fruktossirap", "Honung", "Erytritol", "Mannitol", "Maltitol", "Sorbitol", "Xylitol"],
+            "Sötningsmedel": ["Agavesirap", "Glukos-fruktossirap", "Erytritol", "Mannitol", "Maltitol", "Sorbitol", "Xylitol"],
             "Generell laktos": ["Créme fraiche", "Fil", "Glass", "Grädde", "Gräddfil", "Keso", "Kvarg", "Mjölk", "Yoghurt"],
             "Ost": ["Färskost", "Messmör"],
             "Baljväxter": ["Bönpasta", "Glasnudlar", "Kidneybönor", "Kikärter (kokta)", "Sojabönor (gula)", "Sojaprodukter"],
