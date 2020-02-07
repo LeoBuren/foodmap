@@ -8,28 +8,6 @@ class DataCard extends Component {
         }
     }
 
-    componentDidMount() {
-        /*
-        const dropdownList = document.getElementById("data-card-dropdown");
-        const dropdownMore = document.getElementById("dropdown-more");
-        const dropdownLess = document.getElementById("dropdown-less");
-
-        dropdownList.addEventListener('click', e => {
-            if(e.target === dropdownList) {
-                if(dropdownList.classList.contains("active")) {
-                    dropdownList.classList.remove("active");
-                    dropdownMore.classList.add("active");
-                    dropdownLess.classList.remove("active");
-                }else {
-                    dropdownList.classList.add("active");
-                    dropdownMore.classList.remove("active");
-                    dropdownLess.classList.add("active");
-                }
-            }
-        });
-        */
-    }
-
     handleClick = e => {
         e.preventDefault();
         if(e.target === e.currentTarget) {
@@ -49,6 +27,7 @@ class DataCard extends Component {
                 </div>
                 {this.state.active?
                     (<ul className="data-card-container">
+                        {this.props.name==="Frukt"?(<p className="alertMessage">Max 2 frukter per dag och en per tillfälle, 1 dl bär motsvarar 1 frukt.</p>):''}
                         {this.props.data.map((kategori, i) => {
                             if(i === 0 && kategori[0].length) {
                                 return <li key={kategori}>

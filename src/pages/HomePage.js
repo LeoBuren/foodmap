@@ -3,13 +3,21 @@ import { Link } from 'react-router-dom';
 import Search from '../components/Search';
 import DataCard from '../components/DataCard';
 import emptyStateImage from '../emptyState.svg';
+import CheckBox from '../components/CheckBox';
+
+const items = [
+    'Fas 1',
+    'Fas 2',
+    'Fas 3',
+];
 
 class HomePage extends Component {
     constructor(props){
         super(props);
         this.state={
             searchVal: "",
-            azSort: false
+            azSort: false,
+            checkBoxes: items.reduce((o, key) => ({ ...o, [key]: true}), {})
         }
       }
 
@@ -25,10 +33,18 @@ class HomePage extends Component {
         });
     
         menu.addEventListener('click', () => {
-            menu.classList.add("active");
-            asideNav.classList.add("active");
+            if(menu.classList.contains("active")) {
+                menu.classList.remove("active");
+                asideNav.classList.remove("active");
+            }else {
+                menu.classList.add("active");
+                asideNav.classList.add("active");    
+            }
         });
     }
+
+
+    
 
     renderSearchCard = data => {
         for(const key in this.props.data[1]) {
@@ -42,7 +58,7 @@ class HomePage extends Component {
                                 arr[i].push(val)
                         );
                     }
-                    
+                    arr[i] = [arr[i]];
                 }
 
                 return this.checkIfEmpty(arr)?
@@ -52,12 +68,30 @@ class HomePage extends Component {
                         <p>"{this.state.searchVal}" hittades inte</p>
                     </div>
                 </div>:
-                    <DataCard name={this.state.searchVal} key={this.state.searchVal} data={[arr]}/>;
+                    <DataCard name={this.state.searchVal} key={this.state.searchVal} data={arr}/>;
             }
         }
     }
 
     formatString = string => string!==''?string[0].toUpperCase() + string.slice(1).toLowerCase():'';
+
+    createCheckboxes = () => items.map(this.createCheckbox);
+    createCheckbox = label =>
+        (<CheckBox
+          label={label}
+          handleCheckboxChange={this.toggleCheckbox}
+          key={label}
+        />)
+    toggleCheckbox = data => {
+        for(var key in data) {
+            this.setState(() => ({
+                checkBoxes: {
+                    ...this.state.checkBoxes,
+                    [key]: data[key]
+                }
+            }));
+        }
+    }
 
     checkIfEmpty = data => {
         if(data[0].length) {
@@ -69,20 +103,36 @@ class HomePage extends Component {
         return true;
     }
 
+    filterData = data => {
+        let arr = data.slice();
+        for(const key in this.state.checkBoxes) {
+            if (this.state.checkBoxes.hasOwnProperty(key)) {
+                let index = Object.keys(this.state.checkBoxes).indexOf(key);
+
+                if(!this.state.checkBoxes[key]) {
+                    delete arr[index];
+                }
+            }
+        }
+
+        return arr;
+    }
+
     renderDataCards = () => {
         let cardArray = [];
+        
         if(this.state.searchVal) {
             return this.renderSearchCard();
         } else if(this.state.azSort) {
             for(const key in this.props.data[1]) {
                 if(this.props.data[1].hasOwnProperty(key)) {
-                    cardArray.push(<DataCard name={key} key={key} data={this.props.data[1][key]}/>);
+                    cardArray.push(<DataCard name={key} key={key} data={this.filterData(this.props.data[1][key])}/>);
                 }
             }
         }else {
             for(const key in this.props.data[0]) {
                 if (this.props.data[0].hasOwnProperty(key)) {
-                    cardArray.push(<DataCard name={key} key={key} data={this.props.data[0][key]}/>);
+                    cardArray.push(<DataCard name={key} key={key} data={this.filterData(this.props.data[0][key])}/>);
                 }
             }
         }
@@ -129,6 +179,9 @@ class HomePage extends Component {
                                         <p>Sortera bokstavsordning</p>
                                     </div>
                                 }
+                            </li>
+                            <li className="checkboxContainer">
+                                {this.createCheckboxes()}
                             </li>
                         </ul>
                     </nav>

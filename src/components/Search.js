@@ -18,6 +18,7 @@ class Search extends Component {
 
     handleChange = e => {
         this.setState({value: e.target.value});
+        window.scrollTo(0, 0);
         this.props.searchFunc(e.target.value);
     }
 
@@ -47,7 +48,7 @@ class Search extends Component {
                 {this.renderRedirect()}
                 <div><i className="material-icons"> search </i></div>
                 <form onSubmit={this.handleSubmit}>
-                    <input id="searchInput" maxlength="10" type="search" placeholder="Sök efter mat" onChange={this.handleChange} />
+                    <input id="searchInput" maxLength="10" type="search" placeholder="Sök efter mat" onChange={this.handleChange} />
                 </form>
             </nav>
         );

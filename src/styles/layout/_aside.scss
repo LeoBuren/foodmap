@@ -118,7 +118,28 @@ aside {
                     }
                 }
 
-                
+                &.checkboxContainer {
+                    height: initial;
+                    padding: 0 .5rem;
+                    display: flex;
+                    justify-content: space-evenly;
+
+                    .checkbox {
+                        &:nth-child(1) {
+                            color: green;
+                        }
+                        &:nth-child(2) {
+                            color: orange;
+                        }
+                        &:nth-child(3) {
+                            color: red;
+                        }
+
+                        input {
+                            margin: 0 .25rem 0 0;
+                        }
+                    }
+                }
             } 
         }
     }

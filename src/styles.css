@@ -902,6 +902,12 @@ ul {
   height: 100%;
 }
 
+.data-card-dropdown .data-card-container .alertMessage {
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  color: #000;
+}
+
 @media screen and (min-width: 801px) {
   .data-card-dropdown .data-card-container {
     display: -ms-grid;
@@ -1115,6 +1121,33 @@ aside nav.active li div {
 aside nav.active li div p {
   display: inline-block;
   padding-left: 2rem;
+}
+
+aside nav.active li.checkboxContainer {
+  height: initial;
+  padding: 0 .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+aside nav.active li.checkboxContainer .checkbox:nth-child(1) {
+  color: green;
+}
+
+aside nav.active li.checkboxContainer .checkbox:nth-child(2) {
+  color: orange;
+}
+
+aside nav.active li.checkboxContainer .checkbox:nth-child(3) {
+  color: red;
+}
+
+aside nav.active li.checkboxContainer .checkbox input {
+  margin: 0 .25rem 0 0;
 }
 
 aside ul {

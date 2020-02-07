@@ -39,8 +39,10 @@ class App extends Component {
                     arr[key][i] = [];
                 }
 
-                azArr[i].push(val[key]);
-                arr[key][i].push(val[key]);
+                let sortedData = val[key].sort();
+
+                azArr[i].push(sortedData);
+                arr[key][i].push(sortedData);
             }
         }
     })
