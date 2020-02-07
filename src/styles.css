@@ -1076,7 +1076,7 @@ aside header div:hover i, aside header div:hover .active i {
 }
 
 aside nav {
-  height: calc(100% - 75px);
+  height: calc(100%);
   display: none;
   pointer-events: all;
 }

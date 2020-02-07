@@ -68,7 +68,7 @@ class HomePage extends Component {
                         <p>"{this.state.searchVal}" hittades inte</p>
                     </div>
                 </div>:
-                    <DataCard name={this.state.searchVal} key={this.state.searchVal} data={arr}/>;
+                    <DataCard name={this.state.searchVal} key={this.state.searchVal} data={this.filterData(arr)}/>;
             }
         }
     }
